@@ -1,0 +1,4 @@
+com/java8/app/App.class
+com/java8/app/model/Car.class
+com/java8/app/model/Car$CarBuilder.class
+com/java8/app/boundary/JsonSerializer.class
