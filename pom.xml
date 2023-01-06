@@ -28,6 +28,18 @@
     </dependency>
 
     <dependency>
+      <groupId>foundation.fluent.api</groupId>
+      <artifactId>fluent-api-generator-annotations</artifactId>
+      <version>2.18</version>
+    </dependency>
+
+    <dependency>
+      <groupId>foundation.fluent.api</groupId>
+      <artifactId>fluent-api-generator</artifactId>
+      <version>2.18</version>
+    </dependency>
+
+    <dependency>
       <groupId>com.fasterxml.jackson.core</groupId>
       <artifactId>jackson-databind</artifactId>
       <version>2.13.3</version>
@@ -39,7 +51,41 @@
       <version>5.8.1</version>
       <scope>test</scope>
     </dependency>
+      <dependency>
+          <groupId>org.junit.jupiter</groupId>
+          <artifactId>junit-jupiter</artifactId>
+          <version>5.8.1</version>
+          <scope>test</scope>
+      </dependency>
+      <dependency>
+          <groupId>org.junit.jupiter</groupId>
+          <artifactId>junit-jupiter-api</artifactId>
+          <version>5.8.2</version>
+          <scope>test</scope>
+      </dependency>
+      <dependency>
+          <groupId>junit</groupId>
+          <artifactId>junit</artifactId>
+          <version>4.13.2</version>
+          <scope>test</scope>
+      </dependency>
   </dependencies>
+
+  <profiles>
+    <profile>
+      <id>it</id>
+      <build>
+        <plugins>
+          <plugin>
+            <artifactId>maven-surefire-plugin</artifactId>
+            <configuration>
+              <groups>slowTest</groups>
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
 
 
   <build>
@@ -61,7 +107,7 @@
         </plugin>
         <plugin>
           <artifactId>maven-surefire-plugin</artifactId>
-          <version>2.22.1</version>
+          <version>3.0.0-M7</version>
         </plugin>
         <plugin>
           <artifactId>maven-jar-plugin</artifactId>
@@ -95,6 +141,20 @@
           <target>10</target>
         </configuration>
       </plugin>
+
+
+<!--      <plugin>-->
+<!--        <artifactId>maven-compiler-plugin</artifactId>-->
+<!--        <configuration>-->
+<!--          <annotationProcessorPaths>-->
+<!--            <annotationProcessorPath>-->
+<!--              <groupId>foundation.fluent.api</groupId>-->
+<!--              <artifactId>fluent-api-generator</artifactId>-->
+<!--              <version>2.16</version>-->
+<!--            </annotationProcessorPath>-->
+<!--          </annotationProcessorPaths>-->
+<!--        </configuration>-->
+<!--      </plugin>-->
     </plugins>
   </build>
 </project>
